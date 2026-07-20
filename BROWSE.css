@@ -1,0 +1,432 @@
+/* ===============================
+   GLOBAL
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: #f5f5f5;
+    color: #222;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ===============================
+   NAVBAR
+================================= */
+
+.navbar {
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 60px;
+    border-bottom: 1px solid #eee;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.logo-icon {
+    background: #ff7a00;
+    color: white;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.orange {
+    color: #ff7a00;
+}
+
+.search {
+    padding: 10px 15px;
+    width: 320px;
+    max-width: 100%;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    background: #fafafa;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #444;
+    font-weight: 500;
+}
+
+.nav-links .active {
+    color: #ff7a00;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-outline {
+    padding: 8px 18px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+}
+
+.btn-primary {
+    padding: 8px 18px;
+    border-radius: 20px;
+    border: none;
+    background: #ff7a00;
+    color: white;
+    cursor: pointer;
+}
+
+/* ===============================
+   PAGE HEADER
+================================= */
+
+.page-header {
+    padding: 40px 60px 10px;
+}
+
+.page-header h1 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.page-header p {
+    color: #777;
+}
+
+/* ===============================
+   CATEGORIES
+================================= */
+
+.categories {
+    padding: 20px 60px;
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.categories::-webkit-scrollbar {
+    display: none;
+}
+
+.cat {
+    padding: 8px 18px;
+    border-radius: 25px;
+    border: none;
+    background: #f0f0f0;
+    cursor: pointer;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.cat.active {
+    background: #ff7a00;
+    color: white;
+}
+
+/* ===============================
+   FOOD GRID
+================================= */
+
+.food-grid {
+    padding: 20px 60px 60px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    position: relative;
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.card-body {
+    padding: 18px;
+}
+
+.card-title-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    color: #ff7a00;
+    font-weight: 600;
+}
+
+.vendor {
+    color: #888;
+    font-size: 14px;
+    margin: 6px 0 12px;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.cart-btn {
+    background: #ff7a00;
+    border: none;
+    color: white;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* ===== FOOTER STYLES ===== */
+
+.footer {
+  background: linear-gradient(to right, #1a120c, #2b1c12);
+  color: #ffffff;
+  padding: 60px 100px 20px 100px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 220px;
+  margin-bottom: 30px;
+}
+
+/* ===== BRAND SECTION ===== */
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  background: #ff7a00;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.logo-text {
+  font-size: 22px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.highlight {
+  color: #ff7a00;
+}
+
+.brand-description {
+  color: #b3b3b3;
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 280px;
+}
+
+/* ===== HEADINGS ===== */
+
+.footer-col h3 {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+/* ===== LINKS ===== */
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  text-decoration: none;
+  color: #b3b3b3;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+  color: #ff7a00;
+}
+
+/* ===== PAYMENT TEXT ===== */
+
+.payment-text {
+  color: #b3b3b3;
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 250px;
+}
+
+/* ===== FOOTER BOTTOM ===== */
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.footer-bottom hr {
+  border: none;
+  border-top: 1px solid #3a2a1e;
+  margin-bottom: 20px;
+}
+
+.footer-bottom p {
+  color: #999999;
+  font-size: 13px;
+}
+
+/* ===============================
+   RESPONSIVE BREAKPOINTS
+================================= */
+
+/* Large tablets */
+@media (max-width: 1200px) {
+    .food-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+
+    .navbar {
+        padding: 18px 30px;
+    }
+
+    .page-header,
+    .categories,
+    .food-grid {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .food-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .nav-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .search {
+        width: 100%;
+    }
+
+    .page-header {
+        padding: 30px 20px 10px;
+    }
+
+    .categories {
+        padding: 20px;
+    }
+
+    .food-grid {
+        padding: 20px;
+        grid-template-columns: 1fr;
+    }
+
+    .card img {
+        height: 220px;
+    }
+}

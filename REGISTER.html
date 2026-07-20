@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FoodHub - Create Account</title>
+    <link rel="stylesheet" href="css/REGISTER.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="nav-left">
+            <button class="fh-menu-btn" aria-label="Open menu" title="Menu">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </button>
+            <div class="logo">
+                <div class="logo-box">F</div>
+                <span>FoodHub</span>
+            </div>
+        </div>
+
+        <nav class="nav-center">
+            <a href="INDEX.html" data-i18n="nav.home">Home</a>
+        </nav>
+    </header>
+
+    <!-- REGISTER SECTION -->
+    <section class="register-section">
+        <div class="container">
+            <div class="card">
+                <h2 id="register-heading">Create Account</h2>
+                <p class="subtitle">Choose account type and create your account</p>
+
+                <div class="form-group">
+                    <label>Account Type</label>
+                    <div class="account-type">
+                        <label><input type="radio" name="register-role" value="customer" checked> Customer</label>
+                        <label><input type="radio" name="register-role" value="vendor"> Vendor</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <div class="input-box">
+                        <i class="fa fa-user"></i>
+                        <input id="register-name" type="text" placeholder="John Doe">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <div class="input-box">
+                        <i class="fa fa-envelope"></i>
+                        <input id="register-email" type="email" placeholder="you@example.com">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <div class="input-box">
+                        <i class="fa fa-lock"></i>
+                        <input id="register-password" type="password" placeholder="••••••••">
+                        <i class="fa fa-eye toggle"></i>
+                    </div>
+                </div>
+
+                <button class="create-btn">Create Account</button>
+
+                <p class="login-text">
+                    Already have an account?
+                    <a href="LOGIN.html"><span>Log In</span></a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script src="JS-files/i18n.js"></script>
+    <script src="JS-files/app-state.js"></script>
+    <script src="JS-files/nav.js"></script>
+    <script src="JS-files/register.js"></script>
+
+</body>
+
+</html>

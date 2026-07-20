@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Browse Food - FoodHub</title>
+    <link rel="stylesheet" href="css/BROWSE.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="nav-left">
+            <button class="fh-menu-btn" aria-label="Open menu" title="Menu">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </button>
+            <div class="logo">
+                <div class="logo-icon">F</div>
+                <span class="logo-text">FoodHub</span>
+            </div>
+        </div>
+
+        <nav class="nav-center">
+            <a href="INDEX.html" data-i18n="nav.home">Home</a>
+            <div class="has-dropdown">
+                <a href="BROWSE.html" class="active" data-i18n="nav.browse">Browse ▾</a>
+                <div class="dropdown-menu">
+                    <a href="BROWSE.html?cat=all">All</a>
+                    <a href="BROWSE.html?cat=local">Local</a>
+                    <a href="BROWSE.html?cat=grills">Grills</a>
+                    <a href="BROWSE.html?cat=rice">Rice</a>
+                    <a href="BROWSE.html?cat=pastries">Pastries</a>
+                </div>
+            </div>
+            <a href="INDEX.html" data-i18n="nav.vendor">How It Works</a>
+        </nav>
+
+        <div class="nav-right">
+            <div class="cart"><a href="CART.html">🛒<span class="cart-count">0</span></a></div>
+            <a href="LOGIN.html" class="nav-btn login-btn">Log In</a>
+            <a href="REGISTER.html" class="nav-btn signup-btn">Vendor Sign Up</a>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <h1>Browse Food</h1>
+        <p>Explore meals from vendors near you</p>
+    </section>
+    <input type="text" placeholder="Search meals or vendors..." class="search">
+
+    <section class="categories">
+        <button class="cat active">🍽️ All</button>
+        <button class="cat">🍲 Local</button>
+        <button class="cat">🍖 Grills</button>
+        <button class="cat">🍚 Rice</button>
+        <button class="cat">🥐 Pastries</button>
+        <button class="cat">🥤 Drinks</button>
+        <button class="cat">🍰 Desserts</button>
+        <button class="cat">🥗 Healthy</button>
+    </section>
+
+    <section class="food-grid">
+
+        <div class="card">
+            <span class="badge">Rice</span>
+            <img src="images/jollof.jpg" alt="">
+            <div class="card-body">
+                <div class="card-title-price">
+                    <h3>Jollof Rice & Chicken</h3>
+                    <span class="price">3,500 F</span>
+                </div>
+                <p class="vendor">by Mama's Kitchen</p>
+                <div class="card-meta">
+                    <span>⭐ 4.8</span>
+                    <span>⏱ 25 min</span>
+                    <button class="cart-btn">🛒</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <span class="badge">Grills</span>
+            <img src="images/tilapia.jpg" alt="">
+            <div class="card-body">
+                <div class="card-title-price">
+                    <h3>Grilled Tilapia</h3>
+                    <span class="price">5,000 F</span>
+                </div>
+                <p class="vendor">by Riverside Grills</p>
+                <div class="card-meta">
+                    <span>⭐ 4.6</span>
+                    <span>⏱ 30 min</span>
+                    <button class="cart-btn">🛒</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <span class="badge">Pastries</span>
+            <img src="images/pastries.jpg" alt="">
+            <div class="card-body">
+                <div class="card-title-price">
+                    <h3>Meat Pie & Puff Puff</h3>
+                    <span class="price">1,500 F</span>
+                </div>
+                <p class="vendor">by Golden Bakery</p>
+                <div class="card-meta">
+                    <span>⭐ 4.5</span>
+                    <span>⏱ 10 min</span>
+                    <button class="cart-btn">🛒</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <span class="badge">Local</span>
+            <img src="images/ndole.jpg" alt="">
+            <div class="card-body">
+                <div class="card-title-price">
+                    <h3>Ndolé with Plantain</h3>
+                    <span class="price">4,000 F</span>
+                </div>
+                <p class="vendor">by Aunty Grace</p>
+                <div class="card-meta">
+                    <span>⭐ 4.9</span>
+                    <span>⏱ 35 min</span>
+                    <button class="cart-btn">🛒</button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-col footer-brand">
+                <div class="logo">
+                    <div class="logo-icon">F</div>
+                    <span class="logo-text">Food<span class="highlight">Hub</span></span>
+                </div>
+                <p class="brand-description">
+                    Your favorite food marketplace. Fresh meals from
+                    local vendors delivered to your door.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Browse Food</a></li>
+                    <li><a href="#">Become a Vendor</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Payment</h3>
+                <p class="payment-text">
+                    We accept Mobile Money (MTN, Orange, Airtel)
+                    and card payments.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <hr />
+            <p>© 2026 FoodHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="JS-files/i18n.js"></script>
+    <script src="JS-files/app-state.js"></script>
+    <script src="JS-files/nav.js"></script>
+    <script src="JS-files/browse.js"></script>
+</body>
+
+</html>

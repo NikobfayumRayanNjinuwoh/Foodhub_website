@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodHub Admin - Video Ads</title>
+    <link rel="stylesheet" href="css/ADDS-Upload.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo-section">
+                <div class="orange-box">F</div>
+                <span class="brand-name">FoodHub <span class="admin-text">Admin</span></span>
+            </div>
+            
+            <nav class="menu-links">
+                <a href="ADMIN-DASH.html"> Dashboard<i class="fa-solid fa-grip"></i></a>
+                <a href="VENDORs-request.html"> Vendor Requests<i class="fa-solid fa-user-group"></i></a>
+                <a href="ADDS-upload.html" class="active-link">Video Ads</a>
+                <a href="SITE-SETTING.HTML">Site Settings<i class="fa-solid fa-gear"></i> </a>
+                <a href="#">Live Preview<i class="fa-solid fa-globe"></i> </a>
+            </nav>
+
+            <div class="user-section">
+                <i class="fa-regular fa-bell bell-icon"></i>
+                <div class="user-meta">
+                    <span class="name">Admin User</span>
+                    <span class="role">Super Admin</span>
+                </div>
+                <div class="avatar-circle"></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-wrapper">
+        <div class="heading-area">
+            <h1>Video Advertisements</h1>
+            <p>Manage promotional videos from vendors.</p>
+        </div>
+
+        <section class="upload-card">
+            <div class="card-header">
+                <i class="fa-solid fa-upload"></i>
+                <h2>Upload Video Ad</h2>
+            </div>
+
+            <div class="form-group">
+                <label>Vendor Name</label>
+                <input type="text" placeholder="e.g. Mama Kitchen">
+            </div>
+
+            <div class="form-group">
+                <label>Video Source</label>
+                <input type="text" placeholder="Paste video URL (WhatsApp link, Cloudinary, etc.)">
+            </div>
+
+            <div class="or-divider">
+                <span>Or upload local file</span>
+            </div>
+
+            <div class="file-picker">
+                <button class="choose-btn">Choose File</button>
+                <span class="file-label">No file chosen</span>
+            </div>
+
+            <button class="submit-action-btn">Add to Ads Section</button>
+        </section>
+    </main>
+
+    <script src="JS-files/adds-upload.js"></script>
+
+</body>
+</html>

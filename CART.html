@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FoodHub - Cart</title>
+    <link rel="stylesheet" href="css/CART.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <button class="fh-menu-btn" aria-label="Open menu" title="Menu">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="logo">
+                <div class="logo-box">F</div>
+                <span>FoodHub</span>
+            </div>
+        </div>
+
+        <div class="nav-center">
+            <a href="INDEX.html" data-i18n="nav.home">Home</a>
+            <div class="has-dropdown">
+                <a href="BROWSE.html" data-i18n="nav.browse">Browse ▾</a>
+                <div class="dropdown-menu">
+                    <a href="BROWSE.html?cat=all">All</a>
+                    <a href="BROWSE.html?cat=local">Local</a>
+                    <a href="BROWSE.html?cat=grills">Grills</a>
+                </div>
+            </div>
+            <a href="VENDOR-DASHBOARD.html" data-i18n="nav.vendor">Vendor</a>
+        </div>
+
+        <div class="nav-right">
+            <a href="CART.html" class="cart-icon">🛒 <span class="cart-count">0</span></a>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTAINER -->
+    <div class="container">
+
+        <div class="cart-left">
+            <h2>Your Cart</h2>
+            <p class="items-count">2 items in your cart</p>
+
+            <!-- ITEM 1 -->
+            <div class="cart-item">
+                <img src="jollof.jpg" alt="">
+                <div class="item-details">
+                    <h3>Jollof Rice & Chicken</h3>
+                    <p>by Mama's Kitchen</p>
+                    <div class="quantity">
+                        <button>-</button>
+                        <span>1</span>
+                        <button>+</button>
+                    </div>
+                </div>
+                <div class="item-price">
+                    3,500 F
+                </div>
+            </div>
+
+            <!-- ITEM 2 -->
+            <div class="cart-item">
+                <img src="tilapia.jpg" alt="">
+                <div class="item-details">
+                    <h3>Grilled Tilapia</h3>
+                    <p>by Riverside Grills</p>
+                    <div class="quantity">
+                        <button>-</button>
+                        <span>1</span>
+                        <button>+</button>
+                    </div>
+                </div>
+                <div class="item-price">
+                    5,000 F
+                </div>
+            </div>
+        </div>
+
+        <!-- ORDER SUMMARY -->
+        <div class="cart-right">
+            <h3>Order Summary</h3>
+
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span>8,500 F</span>
+            </div>
+
+            <div class="summary-row">
+                <span>Delivery Fee</span>
+                <span>500 F</span>
+            </div>
+
+            <hr>
+
+            <div class="summary-row total">
+                <span>Total</span>
+                <span>9,000 F</span>
+            </div>
+
+            <h4>Payment Method</h4>
+
+            <div class="payment selected" data-payment="mobile">
+                <label style="display:flex;align-items:center;gap:10px;cursor:pointer">
+                    <input type="radio" name="payment-method" value="mobile" checked>
+                    <div>
+                        <strong>Mobile Money</strong>
+                        <p>MTN MoMo / Orange Money</p>
+                    </div>
+                </label>
+            </div>
+
+            <div class="payment" data-payment="cash">
+                <label style="display:flex;align-items:center;gap:10px;cursor:pointer">
+                    <input type="radio" name="payment-method" value="cash">
+                    <div>
+                        <strong>Cash on Delivery</strong>
+                        <p>Pay when you receive</p>
+                    </div>
+                </label>
+            </div>
+
+            <button class="place-order" data-i18n="btn.place">Place Order</button>
+            <div class="continue" data-i18n="btn.continue">← Continue Shopping</div>
+        </div>
+
+    </div>
+
+    <script src="JS-files/i18n.js"></script>
+    <script src="JS-files/app-state.js"></script>
+    <script src="JS-files/nav.js"></script>
+    <script src="JS-files/cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Item - Vendor</title>
+    <link rel="stylesheet" href="css/VENDOR-DASHBOARD.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-left">
+            <button class="fh-menu-btn" aria-label="Open menu" title="Menu">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="logo"><div class="logo-icon">F</div><span>Food<span class="orange">Hub</span></span></div>
+        </div>
+
+        <nav class="nav-center">
+            <a href="INDEX.html" data-i18n="nav.home">Home</a>
+            <a href="BROWSE.html" data-i18n="nav.browse">Browse</a>
+            <a href="VENDOR-DASHBOARD.html" data-i18n="nav.vendor">Vendor</a>
+        </nav>
+
+        <div class="nav-right">
+            <a href="CART.html" class="cart-link">🛒 <span class="cart-badge">0</span></a>
+            <a href="VENDOR-DASHBOARD.html"><button class="btn-outline">Back</button></a>
+            <a href="LOGIN.html"><button class="login-btn">Log In</button></a>
+        </div>
+    </header>
+
+    <section class="add-item container">
+        <h2>Add New Menu Item</h2>
+        <label>Title</label>
+        <input id="item-title" placeholder="Jollof Rice & Chicken">
+
+        <label>Price (F)</label>
+        <input id="item-price" type="number" placeholder="3500">
+
+        <label>Category</label>
+        <input id="item-category" placeholder="Rice">
+
+        <label>Vendor Name</label>
+        <input id="item-vendor" placeholder="Mama's Kitchen">
+
+        <label>Image or Video (optional)</label>
+        <input id="media" type="file" accept="image/*,video/*">
+
+        <button id="save-item">Save Item</button>
+    </section>
+
+</section>
+
+    <script src="JS-files/i18n.js"></script>
+    <script src="JS-files/app-state.js"></script>
+    <script src="JS-files/nav.js"></script>
+    <script src="JS-files/vendor-add.js"></script>
+</body>
+</html>

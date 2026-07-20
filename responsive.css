@@ -1,0 +1,488 @@
+/* Responsive helpers for FoodHub - site-wide */
+/* Box sizing */
+*, *:before, *:after { box-sizing: border-box; }
+html, body { max-width:100vw; overflow-x:hidden; }
+body { margin:0; font-family: Inter, Poppins, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; line-height:1.35; }
+
+/* ensure the navbar height is available to CSS for positioning mobile panel */
+.navbar { --navbar-height:56px; min-height:var(--navbar-height); }
+
+/* Navbar base */
+.navbar { display:flex; align-items:center; justify-content:space-between; padding:12px 24px; background:#fff; border-bottom:1px solid #eee; position:relative; z-index:1000; gap:18px; width:100%; box-sizing:border-box; }
+.navbar .logo { display:flex; align-items:center; gap:10px; font-weight:700; font-size:18px; }
+.navbar .logo .logo-box, .navbar .logo .logo-icon { width:40px; height:40px; display:flex; align-items:center; justify-content:center; border-radius:8px; background:#f4a261; color:#fff; font-weight:800; font-size:18px; }
+.navbar .nav-links { display:flex; gap:18px; align-items:center; }
+.navbar .nav-links a { color:#222; text-decoration:none; padding:8px 6px; border-radius:6px; max-width:200px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.navbar .nav-links a.active { background:rgba(0,0,0,0.04); }
+.navbar .nav-actions, .navbar .nav-right { display:flex; align-items:center; gap:10px; }
+
+/* ORGANIZED NAVBAR LAYOUT: consistent zones and spacing */
+.navbar {
+    --nav-padding-left: 20px;
+    --nav-padding-right: 20px;
+    padding: 12px var(--nav-padding-right);
+}
+.navbar .nav-left { display:flex; align-items:center; gap:16px; min-width:0; flex:0 0 auto; }
+
+/* layout zones (support either .nav-center or legacy .nav-links) */
+.navbar .nav-left { display:flex; align-items:center; gap:12px; min-width:0; }
+.navbar .nav-center { display:flex; align-items:center; gap:20px; flex:1 1 auto; justify-content:center; min-width:0; padding:0 8px; }
+.navbar .nav-right { display:flex; align-items:center; gap:14px; min-width:0; flex:0 0 auto; }
+.navbar .nav-center, .navbar .nav-links { flex-wrap:nowrap; }
+.navbar .nav-links { flex:1 1 auto; justify-content:center; }
+
+/* Ensure long nav labels truncate instead of breaking layout */
+.navbar a { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+/* Slight padding for nav links so they're not jammed */
+.navbar .nav-links a, .navbar .nav-center > a { padding: 8px 12px; margin: 0 4px; }
+
+/* Ensure action buttons have a minimum touchable size */
+.nav-right .signup-btn, .nav-right .login-btn, .nav-right .btn-primary { min-width: 86px; }
+.nav-right a, .nav-right button { margin-left: 6px; }
+
+/* Menu button (injected) styling */
+.fh-menu-btn { display:none; align-items:center; justify-content:center; padding:8px; border-radius:8px; background:transparent; border:1px solid transparent; }
+.fh-menu-btn svg { width:20px; height:20px; }
+
+/* Make the menu button more visible and touch-friendly */
+.fh-menu-btn { display:none; background:transparent; border:0; padding:8px; border-radius:8px; transition:background .15s ease, transform .06s ease; }
+.fh-menu-btn:active { transform:scale(.98); }
+.fh-menu-btn:hover { background:rgba(0,0,0,0.03); }
+.fh-menu-btn svg { width:22px; height:22px; }
+
+/* nav-right alignment and compactness */
+.nav-right a, .nav-right button { display:flex; align-items:center; gap:8px; }
+.nav-right .cart-badge, .nav-right .cart-count { background:#f97316; color:#fff; border-radius:12px; padding:2px 7px; font-size:12px; margin-left:6px; }
+
+/* Mobile dropdown panel styles (created by JS) */
+.fh-mobile-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 9998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .24s ease;
+}
+.fh-mobile-dropdown {
+    position: fixed;
+    background: #fff;
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.16);
+    padding: 10px;
+    z-index: 10001;
+    top: calc(var(--navbar-height, 56px) + 4px);
+    left: 0;
+    right: 0;
+    width: min(100%, 420px);
+    max-height: calc(100dvh - var(--navbar-height, 56px) - 8px);
+    overflow-y: auto;
+    transform: translateY(-8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform .24s ease, opacity .24s ease;
+}
+.fh-mobile-dropdown.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+.fh-mobile-dropdown a { display:block; padding:10px 12px; color:#222; text-decoration:none; border-radius:8px; }
+.fh-mobile-dropdown a:hover { background:rgba(0,0,0,0.04); }
+
+/* Show hamburger at tablet and below (<=768px per requirements) */
+@media (max-width: 768px) {
+    .fh-menu-btn { display:inline-flex; }
+    .navbar .nav-center, .navbar .nav-links { display:none !important; }
+}
+
+/* Mobile stacked full-width menu (opened by JS hamburger) */
+.fh-mobile-dropdown {
+    left: 0 !important;
+    right: 0 !important;
+    top: calc(var(--navbar-height,56px) + 4px) !important;
+    width: 100% !important;
+    border-radius: 0 0 16px 16px !important;
+    padding: 8px 12px !important;
+    max-height: calc(100dvh - var(--navbar-height, 56px) - 8px);
+    overflow-y: auto;
+    transform: translateY(-10px);
+}
+.fh-mobile-dropdown.open { transform: translateY(0); }
+.fh-mobile-dropdown a { display:block; padding:12px 8px; border-bottom:1px solid rgba(0,0,0,0.05); }
+.fh-mobile-overlay { background: rgba(0,0,0,0.3); }
+
+/* When mobile dropdown is open, ensure body doesn't scroll horizontally */
+body.menu-open { overflow: hidden; }
+
+/* Prevent any accidental horizontal overflow from long nav labels */
+.navbar, .navbar * { -webkit-tap-highlight-color: transparent; }
+.navbar a { word-break:break-word; }
+
+/* Very small screens: compress header and ensure mobile menu takes full viewport */
+@media (max-width: 420px) {
+    .navbar { padding-left:10px; padding-right:10px; --navbar-height:52px; }
+    .fh-mobile-dropdown { top: var(--navbar-height) !important; max-height: calc(100vh - var(--navbar-height)); }
+    /* make action buttons smaller and allow mobile menu to include actions (nav.js also appends them)
+       hide redundant descriptive text if developers prefer icons later */
+    .nav-right .signup-btn, .nav-right .login-btn { padding:6px 8px; font-size:13px; min-width:48px; }
+}
+
+/* Language selector styling */
+#fh-lang-select, .fh-lang-select { font-size:14px; padding:6px 8px; border-radius:6px; border:1px solid #e6e6e6; background:#fff; }
+
+/* Show hamburger also for tablets so users can access dropdown panel there */
+@media (max-width: 1024px) {
+    .fh-menu-btn { display:inline-flex !important; }
+    .navbar .nav-center, .navbar .nav-links { display:none !important; }
+}
+
+/* On small screens hide header language select and style compact select inside mobile dropdown */
+@media (max-width: 768px) {
+    #fh-lang-select { display:none !important; }
+    .fh-lang-compact { display:block !important; width:100%; font-size:16px; padding:12px 10px; margin-top:6px; border-radius:8px; border:1px solid #eaeaea; background:#fff; }
+}
+
+/* Ensure the mobile dropdown content has comfortable touch targets */
+.fh-mobile-dropdown a, .fh-mobile-dropdown button { font-size:16px; padding:14px 12px; border-radius:6px; }
+
+/* keep header fixed z-index above mobile panel when needed */
+.navbar { z-index:11000; }
+
+/* Desktop: keep generous horizontal padding and center nav */
+@media (min-width: 1100px) {
+    .navbar { padding-left:40px; padding-right:40px; }
+    .navbar .nav-center { justify-content:center; }
+}
+
+/* Component-scoped: keep Vendor signup on one line on tablet/desktop, allow wrap on small mobile
+   - Prevent shrinking on larger viewports so the text doesn't break
+   - Do not set fixed widths; keep layout flexible */
+@media (min-width: 768px) {
+    .navbar .nav-right .signup-btn,
+    .fh-cloned-actions .signup-btn,
+    .vendor-signup-mobile .signup-btn {
+        white-space: nowrap;    /* keep text on single line */
+        flex-shrink: 0;         /* prevent flex container from shrinking the button */
+        display: inline-flex;   /* ensure consistent inline-flex sizing */
+        align-items: center;
+    }
+    /* anchor wrappers should not artificially constrain the button */
+    .navbar .nav-right > a,
+    .fh-cloned-actions > a,
+    .vendor-signup-mobile > a {
+        min-width: 0;
+    }
+}
+
+/* On small screens allow natural wrapping to avoid overflow */
+@media (max-width: 767px) {
+    .navbar .nav-right .signup-btn,
+    .fh-cloned-actions .signup-btn,
+    .vendor-signup-mobile .signup-btn {
+        white-space: normal;
+        flex-shrink: 1;
+    }
+}
+
+/* Tablet/mobile collapse rules for <=768px */
+@media (max-width: 768px) {
+    .navbar { padding-left:12px; padding-right:12px; }
+    .fh-menu-btn { display:inline-flex !important; }
+    .navbar .nav-right { gap:8px; }
+    /* compress action buttons to smaller touch targets */
+    .nav-right .signup-btn, .nav-right .login-btn, .nav-right .btn-primary { padding-left:10px; padding-right:10px; min-width:56px; }
+    /* allow nav-right to shrink and scroll horizontally inside header if needed */
+    .nav-right { overflow:visible; }
+}
+
+/* Small mobile: compact header with logo and menu; actions collapse into mobile panel */
+@media (max-width: 520px) {
+    .navbar { padding:8px 10px; }
+    .navbar { display:flex; align-items:center; justify-content:space-between; }
+    .navbar .logo span, .navbar .logo .logo-text { font-size:14px; max-width:120px; overflow:hidden; text-overflow:ellipsis; }
+    .fh-menu-btn { padding:8px; }
+    /* reduce action button footprint on very small screens */
+    .nav-right .signup-btn, .nav-right .login-btn { min-width:48px; padding:6px 8px; font-size:13px; }
+}
+
+/* final fallback: if even smaller, compress nav-right icons to single icon buttons */
+@media (max-width: 380px) {
+    .nav-right .signup-btn, .nav-right .login-btn { padding:6px 8px; font-size:13px; }
+}
+
+/* Sidebar-mode styles (used for tablet sidebar) */
+.fh-mobile-dropdown.sidebar-mode { left:0 !important; top: calc(var(--navbar-height,56px) + 6px) !important; bottom:0 !important; width:320px !important; max-width:85% !important; right:auto !important; border-radius:0 !important; padding:18px !important; box-shadow:2px 0 24px rgba(0,0,0,0.12) !important; transform: translateX(-100%); transition: transform .28s ease; }
+.fh-mobile-dropdown.sidebar-mode.open { transform: translateX(0) !important; }
+.fh-mobile-dropdown.sidebar-mode a { padding:12px 10px; }
+
+/* animate overlay fade */
+.fh-mobile-overlay.visible { opacity:1; pointer-events:auto; }
+
+/* Ensure nav-right items have separation on desktop */
+.navbar .nav-right > * { margin-left:8px; }
+.navbar .nav-right > *:first-child { margin-left:0; }
+
+/* Prevent header buttons from visually joining: add subtle divider between them on desktop */
+@media (min-width: 769px) {
+    .nav-right a + a, .nav-right button + button, .nav-right a + button { margin-left:12px; }
+}
+
+/* Ensure logo shrinks on small devices */
+.navbar .logo span { font-size:16px; }
+.navbar .logo .logo-box { width:36px; height:36px; font-size:16px; }
+
+/* Menu button (injected by JS) */
+.fh-menu-btn { display:none; background:transparent; border:1px solid transparent; cursor:pointer; }
+
+/* Sidebar styles (fallback if JS inline styles not applied) */
+.fh-sidebar { left:-320px; top:0; bottom:0; position:fixed; width:300px; max-width:80%; background:#fff; box-shadow:2px 0 12px rgba(0,0,0,0.12); z-index:9999; overflow:auto; padding:18px; transition:left .28s ease; }
+.fh-sidebar .fh-close { position:absolute; right:10px; top:8px; background:transparent; border:none; font-size:20px; cursor:pointer; }
+.fh-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.35); z-index:9998; opacity:0; display:none; transition:opacity .25s ease; }
+
+.fh-sidebar nav a { display:block; padding:10px 6px; color:#222; text-decoration:none; border-bottom:1px solid rgba(0,0,0,0.04); }
+.fh-sidebar .nav-actions, .fh-sidebar .nav-right { margin-top:12px; display:flex; flex-direction:column; gap:8px; }
+
+/* Cloned-panel improvements: ensure cloned nav/actions are stacked and responsive */
+.fh-mobile-top { display:flex; align-items:center; gap:12px; padding:6px 4px 12px 4px; border-bottom:1px solid rgba(0,0,0,0.04); }
+.fh-mobile-top .logo { display:flex; align-items:center; gap:8px; }
+.fh-mobile-top .logo .logo-box, .fh-mobile-top .logo .logo-icon { width:36px; height:36px; }
+.fh-cloned-nav { display:flex; flex-direction:column; gap:6px; padding:8px 2px; }
+.fh-cloned-nav a { display:block; padding:10px 12px; border-radius:8px; color:#222; text-decoration:none; word-break:break-word; }
+.fh-cloned-actions { display:flex; flex-direction:column; gap:8px; padding-top:10px; }
+.fh-cloned-actions a, .fh-cloned-actions button { display:flex; align-items:center; justify-content:center; width:100%; padding:10px 12px; border-radius:8px; text-decoration:none; }
+
+/* Vendor signup grouping: place signup under Vendor link and make it full-width on mobile */
+.vendor-signup-mobile { display:flex; flex-direction:column; gap:6px; padding-top:6px; }
+.vendor-signup-mobile a, .vendor-signup-mobile button { width:100%; box-sizing:border-box; }
+.vendor-signup-mobile .signup-btn { padding:10px 12px; font-weight:700; border-radius:8px; }
+
+
+/* Dropdowns inside the mobile panel should expand inline */
+.fh-mobile-dropdown .has-dropdown .dropdown-menu { position:static !important; border:none !important; box-shadow:none !important; padding:0 !important; display:none; }
+.fh-mobile-dropdown .has-dropdown.open .dropdown-menu { display:block !important; padding-left:12px; }
+.fh-mobile-dropdown .has-dropdown .dropdown-menu a { padding:8px 12px; border-bottom:1px solid rgba(0,0,0,0.04); }
+
+/* Prevent overflow from long labels inside the mobile panel */
+.fh-mobile-dropdown, .fh-mobile-dropdown * { box-sizing:border-box; max-width:100%; }
+.fh-mobile-dropdown a { word-break:break-word; overflow-wrap:break-word; }
+
+/* Smaller screens: reduce padding and font sizes inside mobile panel */
+@media (max-width: 420px) {
+    .fh-mobile-top { padding:8px 8px; }
+    .fh-cloned-nav a { padding:10px 10px; font-size:15px; }
+    .fh-cloned-actions a, .fh-cloned-actions button { padding:10px; font-size:15px; }
+    .fh-mobile-dropdown { padding:6px 6px !important; top: calc(var(--navbar-height, 56px) + 2px) !important; }
+}
+
+/* Navbar center: allow truncation and wrapping on constrained widths */
+.navbar .nav-center { min-width:0; overflow:hidden; }
+.navbar .nav-center > a { white-space:nowrap; text-overflow:ellipsis; overflow:hidden; }
+@media (max-width: 1100px) {
+    .navbar .nav-center { justify-content:flex-start; gap:12px; }
+}
+
+/* Dropdown menu styles for desktop nav */
+.has-dropdown { position:relative; }
+
+/* Prevent Vendor signup text from wrapping on tablet/desktop while allowing wrap on small screens.
+   Use nowrap + ellipsis on larger viewports and allow natural wrapping below 521px. */
+@media (min-width: 521px) {
+    .nav-right .signup-btn,
+    .fh-cloned-actions .signup-btn,
+    .vendor-signup-mobile .signup-btn {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        min-width: 0; /* allow flex items to shrink instead of forcing wrap */
+    }
+}
+.has-dropdown > a { cursor:pointer; }
+.has-dropdown .dropdown-menu { position:absolute; top:calc(100% + 6px); left:0; min-width:180px; background:#fff; border:1px solid #eee; box-shadow:0 6px 18px rgba(0,0,0,0.08); border-radius:8px; display:none; z-index:1002; padding:8px 0; }
+.has-dropdown .dropdown-menu a { display:block; padding:8px 12px; color:#222; text-decoration:none; }
+.has-dropdown.open .dropdown-menu { display:block; }
+
+/* On mobile, dropdowns inside sidebar should be block and visible when parent has class open */
+.fh-sidebar .has-dropdown .dropdown-menu { position:static; border:none; box-shadow:none; padding:0; }
+.fh-sidebar .has-dropdown .dropdown-menu a { padding:10px 0; border-bottom:1px solid rgba(0,0,0,0.04); }
+
+/* HERO responsiveness */
+.hero { display:flex; gap:20px; padding:28px 20px; align-items:center; }
+.hero .hero-text { flex:1; }
+.hero .hero-image { flex:1; display:flex; align-items:center; justify-content:center; position:relative; }
+.hero .hero-image img, .hero .hero-image video { width:100%; height:auto; max-height:420px; object-fit:cover; border-radius:10px; }
+.hero .delivery-badge { position:absolute; right:18px; bottom:18px; background:rgba(255,255,255,0.9); padding:8px 10px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+
+/* Grid responsiveness */
+.cards, .food-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:16px; padding:20px; }
+
+/* Cart layout: ensure summary column stacks on small screens */
+.container { display:flex; gap:20px; padding:20px; }
+.cart-left { flex:1; }
+.cart-right { width:320px; max-width:40%; }
+
+/* Small screens adjustments */
+@media (max-width: 900px){
+    .navbar .nav-links { display:none; }
+    .fh-menu-btn { display:inline-flex; }
+    .hero { flex-direction:column; }
+    .hero .hero-image { width:100%; }
+    .container { flex-direction:column; }
+    .cart-right { width:100%; max-width:100%; }
+}
+
+/* Browse page search input sizing */
+.search { max-width: 720px; width: 100%; display:block; margin:12px auto; padding:10px 12px; border-radius:8px; border:1px solid #e6e6e6; }
+@media (max-width: 680px){ .search { max-width: 420px; padding:9px 10px; } }
+@media (max-width: 420px){ .search { max-width: 320px; padding:8px 10px; } }
+
+@media (max-width: 520px){
+    .navbar { padding:10px 12px; }
+    .navbar .logo span { font-size:15px; }
+    .navbar .logo .logo-box { width:34px; height:34px; font-size:14px; }
+    .cards, .food-grid { gap:12px; }
+}
+
+/* Accessibility helpers */
+.fh-menu-btn:focus, .fh-sidebar .fh-close:focus { outline:2px solid #4c9ffe; outline-offset:2px; }
+
+/* Ensure videos are responsive in cards */
+.card video { width:100%; height:auto; display:block; border-radius:8px; }
+
+/* small tweak for forms */
+input[type="text"], input[type="email"], input[type="number"], select { width:100%; padding:8px 10px; border:1px solid #ddd; border-radius:6px; }
+
+/* Payment option styling */
+.payment { border:1px solid transparent; padding:8px; border-radius:8px; margin-bottom:8px; }
+.payment.selected { border-color: #f4a261; box-shadow: 0 6px 18px rgba(244,162,97,0.12); }
+.payment input[type="radio"] { transform:scale(1.05); }
+
+/* Page-specific responsive tweaks for Login / Register / Cart */
+@media (max-width: 900px) {
+    /* Make the main form/card narrower and centered */
+    .card, .login-card { max-width: 520px; width: 94%; margin: 0 auto; }
+    .container { padding: 20px; }
+    /* Ensure nav actions don't overflow */
+    .navbar { padding: 10px 16px; }
+}
+
+@media (max-width: 680px) {
+    /* Register: stack account type buttons vertically */
+    .account-type { flex-direction: column; }
+    .type { width: 100%; }
+    /* Reduce padding on cards/forms */
+    .card, .login-card { padding: 22px; }
+    .subtitle { font-size: 13px; }
+}
+
+@media (max-width: 520px){
+    /* Inputs and buttons full width */
+    input[type="email"], input[type="password"], input[type="text"], .input-box input, select { font-size: 14px; padding: 10px; }
+    .create-btn, .login-btn, .place-order { padding: 10px; font-size: 14px; }
+    /* Cart: stack left/right columns */
+    .container { flex-direction: column; padding: 14px; }
+    .cart-left { width: 100%; }
+    .cart-right { width: 100%; max-width: 100%; margin-top: 16px; }
+    .cart-item { flex-direction: column; align-items: flex-start; gap:10px; }
+    .cart-item img { width:100%; height:180px; }
+    .item-details { margin-left:0; }
+}
+
+@media (max-width: 380px) {
+    .logo span, .logo-text { font-size: 14px; }
+    .navbar .logo .logo-box { width:32px; height:32px; font-size:14px; }
+    .cart-item img { height:140px; }
+}
+
+/* Ensure login buttons are visually consistent (orange) across pages */
+.login-btn {
+    background: #f97316 !important;
+    color: #fff !important;
+    border: none !important;
+    padding: 8px 14px !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    font-size: 14px;
+}
+.login-btn:hover { opacity: 0.95; }
+
+/* Navbar buttons (login, signup, vendor CTA) - polished and responsive */
+.nav-right .login-btn, .nav-right .signup-btn, .signup-btn, .vendor-btn, .btn-primary, .btn-outline {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    font-weight:600;
+    border-radius:10px;
+    padding:8px 14px;
+    transition:transform .08s ease, box-shadow .12s ease, opacity .12s ease;
+    text-decoration:none !important; /* remove underline */
+}
+
+/* Primary filled button (login) */
+.nav-right .login-btn, .login-btn {
+    background: #f97316;
+    color:#fff;
+    border:1px solid transparent;
+}
+
+/* Secondary/outline for signup/vendor */
+.nav-right .signup-btn, .signup-btn, .vendor-btn, .btn-primary {
+    background:transparent;
+    color:#f97316;
+    border:2px solid #f97316;
+}
+
+.nav-right .signup-btn:hover, .signup-btn:hover, .vendor-btn:hover { opacity:0.92; transform:translateY(-1px); }
+
+/* remove text decoration for header links and buttons */
+.navbar a, .navbar a:hover, .navbar a:focus, .nav-right a, .nav-left a { text-decoration:none !important; }
+
+/* focus states for accessibility */
+.nav-right .login-btn:focus, .nav-right .signup-btn:focus, .fh-menu-btn:focus {
+    outline:2px solid rgba(79, 126, 255, 0.22);
+    box-shadow:0 6px 18px rgba(79,126,255,0.08);
+    outline-offset:2px;
+}
+
+/* Make buttons slightly smaller on very small screens */
+@media (max-width: 520px) {
+    .nav-right .login-btn, .nav-right .signup-btn, .vendor-btn, .btn-primary { padding:6px 10px; font-size:13px; border-radius:8px; }
+    .nav-left .logo span, .nav-left .logo .logo-text { font-size:14px; }
+}
+
+/* Ensure no underlines on all button-like anchors globally to match the request */
+a[role="button"], a.button, .btn, button, .login-btn, .signup-btn, .vendor-btn { text-decoration:none !important; }
+
+/* Global responsive button utilities - ensures consistent sizing across viewports */
+.btn, button, .login-btn, .signup-btn, .create-btn, .add-btn, .place-order, .cart-btn, .btn-primary, .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: clamp(8px, 1.8vw, 12px) clamp(12px, 2.6vw, 18px);
+    font-size: clamp(13px, 1.6vw, 16px);
+    border-radius: 10px;
+    min-height: 44px;
+    line-height: 1;
+    cursor: pointer;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+/* Make primary action buttons fill available width on small screens for touch comfort */
+@media (max-width: 520px) {
+    .btn, button, .create-btn, .place-order, .add-btn { width: 100%; padding: 12px 14px; font-size: 15px; }
+    /* Header action buttons remain compact but readable */
+    .nav-right .login-btn, .nav-right .signup-btn { width: auto; padding: 8px 10px; font-size: 13px; }
+}
+
+/* Icon-only buttons (cart, small actions) */
+.btn.icon-only, button.icon-only, .cart-btn.icon-only { padding: 8px; width: 40px; height: 40px; border-radius: 8px; }
+
+/* Avoid buttons shrinking too small in header on larger viewports */
+.nav-right .login-btn, .nav-right .signup-btn { flex-shrink: 0; }
+
+/* Ensure buttons wrap cleanly inside narrow containers */
+.btn, button { word-break: keep-all; overflow: hidden; text-overflow: ellipsis; }

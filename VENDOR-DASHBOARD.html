@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vendor Dashboard - FoodHub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/VENDOR-DASHBOARD.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="nav-left">
+        <button class="fh-menu-btn" aria-label="Open menu" title="Menu">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="logo">
+            <div class="logo-icon">F</div>
+            <span>Food<span class="orange">Hub</span></span>
+        </div>
+    </div>
+
+    <nav class="nav-center">
+        <div class="has-dropdown">
+            <a class="active" href="VENDOR-DASHBOARD.html" data-i18n="nav.vendor">Vendor ▾</a>
+            <div class="dropdown-menu">
+                <a href="VENDOR-DASHBOARD.html">Dashboard</a>
+                <a href="VENDOR-ADD-ITEM.html">Add Item</a>
+                <a href="VENDOR-DASHBOARD.html#orders">Orders</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="nav-right">
+        <a href="CART.html" class="cart-link">🛒 <span class="cart-badge">0</span></a>
+        <a href="LOGIN.html"><button class="login-btn">Log Out</button></a>
+    </div>
+</header>
+
+<section class="dashboard">
+
+    <div class="dashboard-header">
+        <div>
+            <h1>Vendor Dashboard</h1>
+            <p>Welcome back, Mama's Kitchen 👋</p>
+        </div>
+        <button class="add-btn">+ Add New Item</button>
+    </div>
+
+    <div class="stats">
+        <div class="stat-card">
+            <div class="stat-icon">📦</div>
+            <div class="stat-value">156</div>
+            <div class="stat-label">Total Orders</div>
+            <span class="stat-growth positive">↗ +12%</span>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">💲</div>
+            <div class="stat-value">485,000 F</div>
+            <div class="stat-label">Revenue</div>
+            <span class="stat-growth positive">↗ +8%</span>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">📊</div>
+            <div class="stat-value">12</div>
+            <div class="stat-label">Active Items</div>
+            <span class="stat-growth positive">↗ +2</span>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">⏱</div>
+            <div class="stat-value">22 min</div>
+            <div class="stat-label">Avg. Prep Time</div>
+            <span class="stat-growth negative">↗ -3 min</span>
+        </div>
+    </div>
+
+    <div class="orders">
+        <h2>Recent Orders</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Order</th>
+                    <th>Customer</th>
+                    <th>Items</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>#1042</td>
+                    <td>Marie K.</td>
+                    <td>Jollof Rice x2</td>
+                    <td>7,000 F</td>
+                    <td><span class="status preparing">Preparing</span></td>
+                </tr>
+                <tr>
+                    <td>#1041</td>
+                    <td>Paul E.</td>
+                    <td>Grilled Tilapia</td>
+                    <td>5,000 F</td>
+                    <td><span class="status delivered">Delivered</span></td>
+                </tr>
+                <tr>
+                    <td>#1040</td>
+                    <td>Aisha B.</td>
+                    <td>Suya Skewers x3</td>
+                    <td>7,500 F</td>
+                    <td><span class="status delivered">Delivered</span></td>
+                </tr>
+                <tr>
+                    <td>#1039</td>
+                    <td>Jean M.</td>
+                    <td>Ndolé with Plantain</td>
+                    <td>4,000 F</td>
+                    <td><span class="status cancelled">Cancelled</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</section>
+<script src="JS-files/i18n.js"></script>
+<script src="JS-files/app-state.js"></script>
+<script src="JS-files/nav.js"></script>
+<script src="JS-files/VENDOR-DASHBOARD.JS"></script>
+</body>
+</html>

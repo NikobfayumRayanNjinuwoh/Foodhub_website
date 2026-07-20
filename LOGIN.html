@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FoodHub - Login</title>
+  <link rel="stylesheet" href="css/LOGIN.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-left">
+      <button class="fh-menu-btn" aria-label="Open menu" title="Menu">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </button>
+      <div class="logo">
+        <div class="logo-icon">F</div>
+        <span class="logo-text">Food<span class="highlight">Hub</span></span>
+      </div>
+    </div>
+
+    <nav class="nav-center">
+      <a href="INDEX.html" data-i18n="nav.home">Home</a>
+  </header>
+
+  <!-- LOGIN SECTION -->
+  <section class="login-section">
+    <div class="login-card">
+      <h2>Welcome Back</h2>
+      <p class="subtitle">Log in to your FoodHub account</p>
+
+      <label>Email</label>
+      <div class="input-group">
+        <span class="icon">✉</span>
+        <input id="login-email" type="email" placeholder="you@example.com">
+      </div>
+
+      <label>Password</label>
+      <div class="input-group">
+        <span class="icon">🔒</span>
+        <input id="login-password" type="password" placeholder="••••••••">
+        <span class="eye">👁</span>
+      </div>
+
+      <label>Role</label>
+      <div class="input-group">
+        <select id="login-role">
+          <option value="customer">Customer</option>
+          <option value="vendor">Vendor</option>
+          <option value="admin">Admin</option>
+        </select>
+      </div>
+
+      <button class="login-btn">Log In</button>
+
+      <p class="signup-text">
+        Don't have an account?
+        <a href="REGISTER.html">Vendor Sign Up</a>
+      </p>
+
+      <p class="signup-text" style="margin-top: 8px;">
+        Admin demo: <strong>admin@foodhub.com / admin123</strong>
+      </p>
+    </div>
+  </section>
+
+  <script src="JS-files/i18n.js"></script>
+  <script src="JS-files/app-state.js"></script>
+  <script src="JS-files/nav.js"></script>
+  <script src="JS-files/login.js"></script>
+</body>
+
+</html>

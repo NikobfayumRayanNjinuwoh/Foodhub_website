@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FoodHub Admin Dashboard</title>
+<link rel="stylesheet" href="css/ADMIN-DASH.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+<div class="logo">
+<div class="logo-icon">F</div>
+<span>FoodHub <b>Admin</b></span>
+</div>
+
+<nav class="menu">
+<a class="active" href="ADMIN-DASH.html">Dashboard</a>
+<a href="VENDORs-request.html">Requests</a>
+<a href="ADDS-upload.html">Video Ads</a>
+<a href="">Site Settings</a>
+<a href="">Live Preview</a>
+</nav>
+
+<div class="profile">
+<span>Admin User</span>
+<small>Super Admin</small>
+</div>
+
+</header>
+
+
+<!-- MAIN -->
+
+<div class="container">
+
+<h1>Overview</h1>
+<p class="sub">Here's what's happening with FoodHub today.</p>
+
+
+<!-- STATS -->
+
+<div class="stats">
+
+<div class="card">
+<div class="stat-icon blue">📦</div>
+<div>
+<p>Total Orders</p>
+<h2>156</h2>
+</div>
+<span class="growth green">+12%</span>
+</div>
+
+
+<div class="card">
+<div class="stat-icon green">↗</div>
+<div>
+<p>Total Revenue</p>
+<h2>485,000 F</h2>
+</div>
+<span class="growth green">+8%</span>
+</div>
+
+
+<div class="card">
+<div class="stat-icon orange">🍴</div>
+<div>
+<p>Active Vendors</p>
+<h2>0</h2>
+</div>
+<span class="growth green">+2</span>
+</div>
+
+
+<div class="card">
+<div class="stat-icon purple">👥</div>
+<div>
+<p>Pending Requests</p>
+<h2>2</h2>
+</div>
+<span class="new">New</span>
+</div>
+
+</div>
+
+
+<!-- CONTENT GRID -->
+
+<div class="content-grid">
+
+
+<!-- TABLE -->
+
+<div class="table-card">
+
+<div class="table-header">
+<h3>Pending Vendor Applications</h3>
+<a class="history">View All History</a>
+</div>
+
+<table>
+
+<thead>
+<tr>
+<th>Vendor Name</th>
+<th>Email Address</th>
+<th>Applied Date</th>
+<th>Actions</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td class="vendor">
+<span class="vendor-icon">M</span>
+Mama Kitchen
+</td>
+<td>mama@kitchen.com</td>
+<td>06/03/2026</td>
+<td class="actions">
+<button class="approve">✓</button>
+<button class="reject">✕</button>
+</td>
+</tr>
+
+<tr>
+<td class="vendor">
+<span class="vendor-icon orange">G</span>
+Grill Master
+</td>
+<td>grill@master.com</td>
+<td>06/03/2026</td>
+<td class="actions">
+<button class="approve">✓</button>
+<button class="reject">✕</button>
+</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+
+
+<!-- RIGHT PANEL -->
+
+<div class="right-panel">
+
+<div class="quick-actions">
+
+<h3>Quick Actions</h3>
+
+<div class="action">
+<span>🌐</span>
+<p>Edit Website</p>
+</div>
+
+<div class="action">
+<span>👥</span>
+<p>Manage Vendors</p>
+</div>
+
+</div>
+
+
+<div class="system-status">
+
+<h3>System Status</h3>
+<p>All systems are operational. Database backup completed 2h ago.</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="JS-files/app-state.js"></script>
+<script src="JS-files/admin-dashboard.js"></script>
+</body>
+</html>

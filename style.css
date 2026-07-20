@@ -1,0 +1,493 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f6f4f2;
+    color: #222;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: #ffffff;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.logo-box {
+    width: 36px;
+    height: 36px;
+    background: #f97316;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+.nav-center {
+    display: flex;
+    gap: 18px;
+}
+
+.nav-center a {
+    text-decoration: none;
+    color: #666;
+    font-weight: 500;
+}
+
+.nav-center .active {
+    color: #f97316;
+}
+
+/* ================= NAV BUTTONS ================= */
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/* Base button style */
+.nav-btn {
+    display: inline-block;
+    padding: 9px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+/* LOGIN BUTTON (Outline Style) */
+.login-btn {
+    border: 1.5px solid #f97316;
+    color: #f97316;
+    background: transparent;
+}
+
+.login-btn:hover {
+    background: #f97316;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+}
+
+/* SIGN UP BUTTON (Primary Style) */
+.signup-btn {
+    background: #f97316;
+    color: #ffffff;
+    border: none;
+}
+
+.signup-btn:hover {
+    background: #ea580c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(249, 115, 22, 0.35);
+}
+
+/* RIGHT SIDE FIX */
+
+
+/* ================= HERO ================= */
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 8%;
+}
+
+.hero-text {
+    max-width: 550px;
+}
+
+.badge {
+    display: inline-block;
+    background: #fde7d8;
+    color: #f97316;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.hero-text h1 {
+    font-size: 60px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-text h1 span {
+    color: #f97316;
+}
+
+.hero-text p {
+    color: #777;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.hero-buttons button {
+    padding: 14px 26px;
+    border-radius: 10px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.browse-btn {
+    background: #f97316;
+    color: white;
+    margin-right: 15px;
+}
+
+.vendor-btn {
+    background: white;
+    border: 1px solid #ddd;
+}
+
+/* ================= POPULAR SECTION ================= */
+
+.popular {
+    padding: 80px 8%;
+}
+
+.popular-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.popular-header h2 {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.popular-header p {
+    color: #777;
+    font-size: 14px;
+}
+
+.view-all {
+    text-decoration: none;
+    color: #f97316;
+    font-weight: 600;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.card {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+}
+
+.tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* ================= HOW IT WORKS ================= */
+
+.how-it-works {
+    padding: 80px 8%;
+    text-align: center;
+    background: #f4f1ee;
+}
+
+.how-it-works h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #8a8a8a;
+    font-size: 15px;
+    margin-bottom: 50px;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.step-card {
+    background: #ffffff;
+    padding: 40px 25px;
+    border-radius: 15px;
+    flex: 1;
+    min-width: 240px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    transition: 0.3s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+}
+
+.icon-box {
+    width: 60px;
+    height: 60px;
+    background: #fdebdc;
+    color: #f97316;
+    font-size: 26px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+}
+
+.step-card h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.step-card p {
+    font-size: 14px;
+    color: #7a7a7a;
+    line-height: 1.6;
+}
+
+/* ================= CTA SECTION ================= */
+
+.cta-section {
+    padding: 80px 8%;
+    background: #f4f1ee;
+}
+
+.cta-box {
+    background: linear-gradient(to right, #f97316, #ea580c);
+    padding: 70px 40px;
+    border-radius: 20px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.cta-box h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.cta-box p {
+    font-size: 15px;
+    margin-bottom: 30px;
+    color: #ffeede;
+}
+
+.cta-btn {
+    background: #ffffff;
+    color: #1e1e1e;
+    padding: 14px 28px;
+    border-radius: 10px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.cta-btn:hover {
+    background: #f3f3f3;
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+    background: linear-gradient(to right, #1a120c, #2b1c12);
+    color: #ffffff;
+    padding: 60px 8% 20px 8%;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 220px;
+    margin-bottom: 30px;
+}
+
+.footer-col h3 {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    text-decoration: none;
+    color: #b3b3b3;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #ff7a00;
+}
+
+.payment-text {
+    color: #b3b3b3;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.footer-bottom hr {
+    border: none;
+    border-top: 1px solid #3a2a1e;
+    margin-bottom: 20px;
+}
+
+.footer-bottom p {
+    color: #999999;
+    font-size: 13px;
+}
+
+/* ================= RESPONSIVE ADDITIONS ================= */
+
+@media (max-width: 900px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .popular-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 520px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .footer {
+        padding: 40px 5%;
+    }
+
+    .cta-box {
+        padding: 40px 20px;
+    }
+}
+
+/* ================= MOBILE FIX FOR SIGNUP ================= */
+
+@media (max-width: 520px) {
+    .signup-btn {
+        white-space: normal; /* Allow wrap only on small screens */
+        text-align: center;
+    }
+}
+
+/* ================= RESPONSIVE ================= */
+
+.hero-image img,
+.card img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 900px) {
+    .hero-text h1 { font-size: 40px; }
+
+    .hero {
+        flex-direction: column;
+        padding: 30px 6%;
+        gap: 18px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 520px) {
+    .hero-text h1 { font-size: 28px; }
+
+    .hero {
+        padding: 22px 5%;
+    }
+
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .browse-btn,
+    .vendor-btn {
+        width: 100%;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}
+/* ===== Prevent Navbar Breaking ===== */
+
+.navbar {
+    flex-wrap: nowrap;
+}
+
+.nav-left,
+.nav-center,
+.nav-right {
+    flex-shrink: 0;
+}
+
+.nav-center {
+    flex: 1;
+    justify-content: center;
+}
